@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Cart } from '../data/models/cart';
 import { LineItem } from '../data/models/line-item';
 import { CatalogService } from '../services/catalog.service';
 @Component({
@@ -8,7 +7,7 @@ import { CatalogService } from '../services/catalog.service';
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent implements OnInit {
-
+  displayedColumns: string[] = ['id','name','unitcost','quantity'];
   catalog_items:LineItem[] = [];
 
   constructor(private catalogService: CatalogService) {
@@ -25,4 +24,9 @@ export class CatalogComponent implements OnInit {
     })
   }
 
+  addToCart(){
+    
+  }
+
 }
+
