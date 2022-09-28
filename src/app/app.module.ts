@@ -8,6 +8,10 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PaymentInfoComponent } from './payment-info/payment-info.component';
 import { RouterModule } from '@angular/router';
+import { MatTableModule } from '@angular/material/table'
+import { FormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,11 +19,13 @@ import { RouterModule } from '@angular/router';
     PaymentInfoComponent
   ],
   imports: [
+    MatTableModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
+    FormsModule,
     RouterModule.forRoot([
       {path: 'payment-info', component: PaymentInfoComponent},
     ]),
