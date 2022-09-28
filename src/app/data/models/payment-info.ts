@@ -1,4 +1,4 @@
-export class PaymentInfo {
+export interface PaymentInfo {
   cost?: number;
   name?: string;
   cardNumber?: string;

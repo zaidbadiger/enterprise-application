@@ -1,5 +1,5 @@
 import { LineItem } from "./line-item";
 
-export class Cart {
+export interface Cart {
   lineItems?: LineItem[];
 }

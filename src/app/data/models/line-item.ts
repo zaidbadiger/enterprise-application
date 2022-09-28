@@ -1,8 +1,8 @@
-export class LineItem {
-  id?: string;
-  name?: string;
+export interface LineItem {
+  id: string;
+  name: string;
   imageUrl?: string;
   quantity?: number;
-  unitCost?: number;
+  unitCost: number;
   totalCost?: number;
 }
