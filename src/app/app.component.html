@@ -1,4 +1,4 @@
-
+<!--
 <mat-sidenav-container>
   <mat-sidenav  #sidenav role="navigation">
    <mat-nav-list>
@@ -56,5 +56,20 @@
 </mat-sidenav-container>
 <div>
   <app-catalog></app-catalog>
-</div>
+</div> -->
 
+<p>
+  <mat-toolbar color="primary">
+      <span>Shop</span>
+      <span class="toolbar-spacer"></span>
+      <a mat-raised-button color="primary" routerLink="/shipping"><mat-icon>shopping_cart</mat-icon>Cart</a>
+  </mat-toolbar>
+</p>
+<div class="footer" #footer>
+  <a href="#">Refund policy</a>
+  <a href="#">Shipping policy</a>
+  <a href="#">Privacy policy</a>
+  <a href="#">Terms of service</a>
+  <a href="#">Legal notice</a>
+</div>
+<router-outlet></router-outlet>
