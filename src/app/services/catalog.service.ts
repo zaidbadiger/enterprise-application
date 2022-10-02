@@ -25,4 +25,8 @@ export class CatalogService {
   getItem(id:string): Observable<LineItem|undefined>{
     return of(catalog_items.find(x => x.id == id));
   }
+
+  public getItemQuantity(id: String): number {
+    return catalog_items.find(x=>x.id === id)?.quantity!;
+  }
 }

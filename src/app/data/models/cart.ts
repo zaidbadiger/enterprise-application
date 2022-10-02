@@ -1,5 +1,6 @@
-import { LineItem } from "./line-item";
+import { CartItem } from "./cart-item";
 
 export interface Cart {
-  lineItems?: LineItem[];
+  cartItems?: CartItem[];
+  totalCartCost?:number;
 }
