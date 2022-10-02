@@ -1,7 +1,7 @@
-export interface LineItem {
+export interface CartItem {
   id: string;
   name: string;
-  imageUrl?: string;
   quantity?: number;
   unitCost: number;
+  totalCost:number;
 }

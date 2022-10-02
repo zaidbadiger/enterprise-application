@@ -25,7 +25,13 @@ export class CatalogComponent implements OnInit {
   }
 
   addToCart(){
-    
+    //add items to cart and reset quantity to zero
+    //add items to cart
+    //reset quantities
+    this.catalog_items.forEach((item) =>{
+
+    })
+
   }
 
 }
