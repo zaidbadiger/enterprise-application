@@ -33,18 +33,20 @@
 							<tr>
 								<th>Product</th>
 								<th>Price</th>
-								<th></th>
+                <th>Quantity</th>
+                <th>Total Price</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat = "cart in carts" ng-init = "setTotals(cart)">
-								<td>item name</td>
-								<td>price</td>
-								<td><button type = "button" ng-click = "remove_cart(cart)" class = "btn btn-danger"><span class = "glyphicon glyphicon-remove"></span></button></td>
+							<tr *ngFor = "let cart_item of cart.cartItems">
+								<td>{{cart_item.name}}</td>
+								<td>{{cart_item.unitCost}}</td>
+                <td>{{cart_item.quantity}}</td>
+								<td>{{cart_item.totalCost}}</td>
 							</tr>
 							<tr>
 								<td align = "right">Total</td>
-								<td>total price</td>
+								<td>{{cart.totalCartCost}}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -52,5 +54,5 @@
 			</div>
 		</div>
 	</div>
-</body>	
+</body>
 </html>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Cart } from '../data/models/cart';
+import { CartService } from '../services/cart-service';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  cart:Cart = {};
+  constructor(private cartService:CartService) { }
 
   ngOnInit(): void {
+    this.getCart();
+  }
+
+  //get Cart items from cart service and assign to local cart variable
+  getCart(): void {
+    this.cartService.getCart().subscribe(cart => {
+      this.cart = cart
+    })
   }
 
 }
