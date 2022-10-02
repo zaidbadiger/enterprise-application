@@ -12,12 +12,14 @@ import { MatTableModule } from '@angular/material/table'
 import { FormsModule } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ShippingComponent} from './shipping/shipping.component';
+import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
     CatalogComponent,
     PaymentInfoComponent,
-    ShippingComponent
+    ShippingComponent,
+    CartComponent
   ],
   imports: [
     MatTableModule,
