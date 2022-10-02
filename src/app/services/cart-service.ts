@@ -11,7 +11,6 @@ var itemThree: CartItem = {  id: '3',  name: 'Soccer Ball',  unitCost: 12.99,  q
 var itemFour: CartItem = { id: '4',  name: 'Baseball',  unitCost: 2.99,  quantity: 0, totalCost: 0}
 var itemFive: CartItem = { id: '5', name: 'Baseball Bat',  unitCost: 33.99,  quantity: 0, totalCost: 0}
 var cart:Cart;
-var items: CartItem[] = [itemOne, itemTwo, itemThree, itemFour, itemFive]
 @Injectable({
   providedIn: 'root'
 })
@@ -28,26 +27,28 @@ export class CartService {
 
   private updateCartCost(){
     cart.totalCartCost = cart.cartItems?.reduce((accumulator, cart_item) => {
-      return accumulator + cart_item.totalCost;
+      return accumulator + cart_item.totalCost*cart_item.quantity;
     }, 0);
+    console.log()
   }
 
   public updateQuantity(item: LineItem){
+    //cart.cartItems?.find(x=>x.id === item.id)
     if (item.name == "Basketball") {
-      itemOne.quantity+=this.catalogService?.getItemQuantity(item.name);
-      this.cart.totalCartCost! += this.catalogService?.getItemQuantity(item.name) + item.unitCost;
+      itemOne.quantity= Number(itemOne.quantity) + Number(this.catalogService?.getItemQuantity(item.id))
+
     } else if(item.name == "Football") {
-      itemTwo.quantity+=this.catalogService?.getItemQuantity(item.name);
-      this.cart.totalCartCost! += this.catalogService?.getItemQuantity(item.name) + item.unitCost;
+      itemTwo.quantity = itemTwo.quantity + this.catalogService?.getItemQuantity(item.id)
+
     } else if(item.name == "Soccer Ball") {
-      itemThree.quantity+=this.catalogService?.getItemQuantity(item.name);
-      this.cart.totalCartCost! += this.catalogService?.getItemQuantity(item.name) + item.unitCost;
+      itemThree.quantity = itemThree.quantity + this.catalogService?.getItemQuantity(item.id)
+
     } else if(item.name == "Baseball") {
-      itemFour.quantity+=this.catalogService?.getItemQuantity(item.name);
-      this.cart.totalCartCost! += this.catalogService?.getItemQuantity(item.name) + item.unitCost;
+      itemFour.quantity=itemFour.quantity + this.catalogService?.getItemQuantity(item.id)
+
     } else if(item.name == "Baseball Bat") {
-      itemFive.quantity+=this.catalogService?.getItemQuantity(item.name);
-      this.cart.totalCartCost! += this.catalogService?.getItemQuantity(item.name) + item.unitCost;
+      itemFive.quantity = itemFive.quantity + this.catalogService?.getItemQuantity(item.id)
+
     }
     this.updateCartCost(); // BUG: isn't updating the cart
   }
