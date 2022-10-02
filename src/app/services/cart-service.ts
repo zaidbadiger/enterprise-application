@@ -54,6 +54,6 @@ export class CartService {
       itemFive.totalCost = itemFive.unitCost*itemFive.quantity;
 
     }
-    this.updateCartCost(); // BUG: isn't updating the cart
+    this.updateCartCost();
   }
 }
