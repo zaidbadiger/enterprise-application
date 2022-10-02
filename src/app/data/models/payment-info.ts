@@ -1,7 +1,7 @@
 export interface PaymentInfo {
-  name: string;
+  cardHolder: string;
   cardNumber: string;
-  expiration: string;
+  expirationDate: string;
   cvc: string;
 
 }

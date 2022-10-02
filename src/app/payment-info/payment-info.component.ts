@@ -14,11 +14,11 @@ export class PaymentInfoComponent implements OnInit {
 
   paymentInfo = this.paymentInfoService.getInfo();
 
-  checkoutForm = new FormGroup({
-    cardHolder: new FormControl(''),
-    cardNumber: new FormControl(''),
-    expirationDate: new FormControl(''),
-    cvv: new FormControl('')
+  checkoutForm = this.formBuilder.nonNullable.group({
+    cardHolder: '',
+    cardNumber: '',
+    expirationDate: '',
+    cvv: ''
   })
 
   constructor(
@@ -27,10 +27,19 @@ export class PaymentInfoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.paymentInfoService.getInfo();
   }
 
   onSubmit(): void {
-    console.log(this.checkoutForm.value);
+    console.log(this.checkoutForm.value.cardHolder!, this.checkoutForm.value.cardNumber!, this.checkoutForm.value.expirationDate!, this.checkoutForm.value.cvv!);
+    this.setData(this.checkoutForm.value.cardHolder!, this.checkoutForm.value.cardNumber!, this.checkoutForm.value.expirationDate!, this.checkoutForm.value.cvv!)
+  }
+
+  setData(cardHolder: string, cardNumber: string, expirationDate: string, cvv: string) {
+    this.paymentInfoService.cardHolder = cardHolder;
+    this.paymentInfoService.cardNumber = cardNumber;
+    this.paymentInfoService.expirationDate = expirationDate;
+    this.paymentInfoService.cvv = cvv;
   }
 
 }
