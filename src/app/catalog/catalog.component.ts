@@ -33,16 +33,12 @@ export class CatalogComponent implements OnInit {
     //add items to cart
     //reset quantities
     this.catalog_items.forEach((item) =>{
-
+      this.updateItemInCart(); //this is incomplete
     });
 
   }
 
-  addNewItemToCart(){
-
-  }
-
-  updateItemInCard(){
+  updateItemInCart(){ //this is incomplete
 
   }
 

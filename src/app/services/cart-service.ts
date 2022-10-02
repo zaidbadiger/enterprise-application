@@ -8,7 +8,7 @@ var itemOne: CartItem = {  id: '1', name: 'Basketball', unitCost: 11.99, quantit
 var itemTwo: CartItem = { id: '2', name: 'Football', unitCost: 15.99,  quantity: 0, totalCost: 0}
 var itemThree: CartItem = {  id: '3',  name: 'Soccer Ball',  unitCost: 12.99,  quantity: 0, totalCost: 0}
 var itemFour: CartItem = { id: '4',  name: 'Baseball',  unitCost: 2.99,  quantity: 3, totalCost: 8.97}
-var itemFive: CartItem = { id: '5', name: 'Baseball Bat',  unitCost: 33.99,  quantity: 0, totalCost: 0}
+var itemFive: CartItem = { id: '5', name: 'Baseball Bat',  unitCost: 33.99,  quantity: 2, totalCost: 67.98}
 var cart:Cart;
 @Injectable({
   providedIn: 'root'
@@ -16,15 +16,18 @@ var cart:Cart;
 export class CartService {
   cart!: Cart;
   constructor() {
-    cart = {cartItems:[itemOne, itemTwo, itemThree, itemFour, itemFive], totalCartCost:12};
+    cart = {cartItems:[itemOne, itemTwo, itemThree, itemFour, itemFive], totalCartCost:0};
    }
 
   getCart(): Observable<Cart> {
+    this.updateCartCost();
     return of(cart);
   }
 
-  updateCartCost(){
-
+  private updateCartCost(){
+    cart.totalCartCost = cart.cartItems?.reduce((accumulator, cart_item) => {
+      return accumulator + cart_item.totalCost;
+    }, 0);
   }
 
 }
