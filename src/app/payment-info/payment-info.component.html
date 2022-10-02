@@ -1,1 +1,37 @@
-<p>payment-info works!</p>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+    <div>
+        <label for="cardHolder">
+          Card Holder
+        </label>
+        <br>
+        <input id="cardHolder" type="text" formControlName="cardHolder">
+      </div>
+    
+      <div>
+        <label for="cardNumber">
+          Card Number
+        </label>
+        <br>
+        <input id="cardNumber" type="text" formControlName="cardNumber">
+      </div>
+
+      <div>
+        <label for="expirationDate">
+          Expiration Date
+        </label>
+        <br>
+        <input id="expirationDate" type="text" formControlName="expirationDate">
+      </div>
+
+      <div>
+        <label for="cvv">
+          CVV
+        </label>
+        <br>
+        <input id="cvv" type="text" formControlName="cvv">
+      </div>
+
+    <button type="submit">Submit</button>
+
+</form>

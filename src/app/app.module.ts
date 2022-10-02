@@ -27,6 +27,7 @@ import {ShippingComponent} from './shipping/shipping.component';
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'payment-info', component: PaymentInfoComponent},
     ]),
