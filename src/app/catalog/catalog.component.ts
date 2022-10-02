@@ -35,6 +35,7 @@ export class CatalogComponent implements OnInit {
     //reset quantities
     this.catalog_items.forEach((item) =>{
       this.updateItemInCart(item); //this is incomplete
+      item.quantity=0;
     });
 
   }

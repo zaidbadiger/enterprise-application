@@ -27,27 +27,31 @@ export class CartService {
 
   private updateCartCost(){
     cart.totalCartCost = cart.cartItems?.reduce((accumulator, cart_item) => {
-      return accumulator + cart_item.totalCost*cart_item.quantity;
+      return accumulator + cart_item.totalCost;
     }, 0);
     console.log()
   }
 
   public updateQuantity(item: LineItem){
-    //cart.cartItems?.find(x=>x.id === item.id)
     if (item.name == "Basketball") {
       itemOne.quantity= Number(itemOne.quantity) + Number(this.catalogService?.getItemQuantity(item.id))
+      itemOne.totalCost = itemOne.unitCost*itemOne.quantity;
 
     } else if(item.name == "Football") {
-      itemTwo.quantity = itemTwo.quantity + this.catalogService?.getItemQuantity(item.id)
+      itemTwo.quantity= Number(itemTwo.quantity) + Number(this.catalogService?.getItemQuantity(item.id))
+      itemTwo.totalCost = itemTwo.unitCost*itemTwo.quantity;
 
     } else if(item.name == "Soccer Ball") {
-      itemThree.quantity = itemThree.quantity + this.catalogService?.getItemQuantity(item.id)
+      itemThree.quantity= Number(itemThree.quantity) + Number(this.catalogService?.getItemQuantity(item.id))
+      itemThree.totalCost = itemThree.unitCost*itemThree.quantity;
 
     } else if(item.name == "Baseball") {
-      itemFour.quantity=itemFour.quantity + this.catalogService?.getItemQuantity(item.id)
+      itemFour.quantity= Number(itemFour.quantity) + Number(this.catalogService?.getItemQuantity(item.id))
+      itemFour.totalCost = itemFour.unitCost*itemFour.quantity;
 
     } else if(item.name == "Baseball Bat") {
-      itemFive.quantity = itemFive.quantity + this.catalogService?.getItemQuantity(item.id)
+      itemFive.quantity= Number(itemFive.quantity) + Number(this.catalogService?.getItemQuantity(item.id))
+      itemFive.totalCost = itemFive.unitCost*itemFive.quantity;
 
     }
     this.updateCartCost(); // BUG: isn't updating the cart
