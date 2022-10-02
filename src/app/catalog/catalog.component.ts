@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cart } from '../data/models/cart';
 import { LineItem } from '../data/models/line-item';
 import { CatalogService } from '../services/catalog.service';
+import { CartService } from '../services/cart-service';
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
@@ -12,7 +13,7 @@ export class CatalogComponent implements OnInit {
   catalog_items:LineItem[] = [];
   cart:Cart = {};
 
-  constructor(private catalogService: CatalogService) {
+  constructor(private catalogService: CatalogService, private cartService: CartService) {
    }
 
   ngOnInit(): void {
@@ -33,13 +34,13 @@ export class CatalogComponent implements OnInit {
     //add items to cart
     //reset quantities
     this.catalog_items.forEach((item) =>{
-      this.updateItemInCart(); //this is incomplete
+      this.updateItemInCart(item); //this is incomplete
     });
 
   }
 
-  updateItemInCart(){ //this is incomplete
-
+  updateItemInCart(item: LineItem){ //this is incomplete
+    this.cartService.updateQuantity(item);
   }
 
 }

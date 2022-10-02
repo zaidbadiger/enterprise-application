@@ -25,4 +25,18 @@ export class CatalogService {
   getItem(id:string): Observable<LineItem|undefined>{
     return of(catalog_items.find(x => x.id == id));
   }
+
+  public getItemQuantity(name: String) {
+    if (name == "Basketball") {
+      return itemOne.quantity;
+    } else if(name == "Football") {
+      return itemTwo.quantity;
+    } else if(name == "Soccer Ball") {
+      return itemThree.quantity;
+    } else if(name == "Baseball") {
+      return itemFour.quantity;
+    } else {
+      return itemFive.quantity;
+    }
+  }
 }

@@ -2,6 +2,6 @@ export interface LineItem {
   id: string;
   name: string;
   imageUrl?: string;
-  quantity?: number;
+  quantity: number;
   unitCost: number;
 }
