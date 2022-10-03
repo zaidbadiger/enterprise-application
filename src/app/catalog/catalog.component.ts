@@ -1,47 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { Cart } from '../data/models/cart';
 import { LineItem } from '../data/models/line-item';
-import { CatalogService } from '../services/catalog.service';
-import { CartService } from '../services/cart-service';
+import { Item } from '../shared/models/Item';
+import { CatalogService } from '../services/item/catalog.service';
+import { CartService } from '../services/cart/cart.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent implements OnInit {
-  displayedColumns: string[] = ['id','name','unitcost','quantity'];
-  catalog_items:LineItem[] = [];
-  cart:Cart = {};
 
-  constructor(private catalogService: CatalogService, private cartService: CartService) {
+  items: Item[] = [];
+  item!: Item;
+
+  constructor(private catalogService: CatalogService, private cartService: CartService, private route: ActivatedRoute) {
    }
 
   ngOnInit(): void {
-    this.getCatalog();
-    this.cart.cartItems=[];
-    this.cart.totalCartCost=0;
-  }
-
-  //get Catalog items from catalog service and assign to local catalog_items variable
-  getCatalog(): void {
-    this.catalogService.getItems().subscribe(catalog_items => {
-      this.catalog_items = catalog_items
+    this.route.params.subscribe(params => {
+        this.items = this.catalogService.getAll();
     })
   }
 
-  addToCart(){
+  addToCart(itemTemp: Item){
     //add items to cart and reset quantity to zero
     //add items to cart
     //reset quantities
-    this.catalog_items.forEach((item) =>{
-      this.updateItemInCart(item); //this is incomplete
-      item.quantity=0;
-    });
-
+    this.cartService.addToCart(itemTemp);
   }
 
   updateItemInCart(item: LineItem){ //this is incomplete
-    this.cartService.updateQuantity(item);
+    //this.cartService.updateQuantity(item);
   }
 
 }

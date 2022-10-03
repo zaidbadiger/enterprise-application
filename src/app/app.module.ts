@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {MaterialModule} from './material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CatalogComponent } from './catalog/catalog.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -29,12 +30,12 @@ import { CartComponent } from './cart/cart.component';
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'payment-info', component: PaymentInfoComponent},
+      {path: 'shipping', component: ShippingComponent}
     ]),
-    //FormsModule,
-    //ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

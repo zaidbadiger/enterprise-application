@@ -1,41 +1,21 @@
-<ng-container>
-  <div class = "pull-right col-md-5">
-    <div class = "panel panel-primary">
-      <div class = "panel-heading">
-        <h1>THE SHOP</h1>
-      </div>
-      <div class = "panel-body table-responsive">
-        <table class = "table">
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor = "let item of catalog_items">
-              <td>{{item.name}}</td>
-              <td>{{item.unitCost}}</td>
-              <td>
-                <input [(ngModel)]="item.quantity">
+<mat-card class="container">
+  <mat-card-content>
+    <form class="catalog">
+      <table>
+          <tr>
+              <td *ngFor="let item of items">
+                <mat-card class="item-card">
+                      <img mat-card-image src="{{item.imageUrl}}" alt="{{item.name}}">
+                      <mat-card-content>
+                        <p class="item-title">{{item.name}}</p>
+                        <p class="price">{{item.price|currency}}</p>
+                        <button mat-stroked-button class="add-cart-button" (click)="addToCart(item)">Add to cart</button>
+                  </mat-card-content>
+                </mat-card>
               </td>
-              <td>{{item.unitCost * item.quantity}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <button (click)="addToCart()">Add to Cart</button>
-</ng-container>
-
-
-
-
-
-
-
-
+          </tr>
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>
 
