@@ -5,15 +5,15 @@ import { PaymentInfo } from '../data/models/payment-info'
   providedIn: 'root'
 })
 export class PaymentInfoService {
-  cardHolder: string = '';
-  cardNumber: string = '';
-  expirationDate: string = '';
-  cvv: string = '';
-  info: string[] = [this.cardHolder, this.cardNumber, this.expirationDate, this.cvv];
+  cardHolder: String = '';
+  cardNumber: String = '';
+  expirationDate: String = '';
+  cvv: String = '';
+  info: String[] = [this.cardHolder, this.cardNumber, this.expirationDate, this.cvv];
 
   constructor() { }
 
   getInfo() {
-    return this.info;
+    return this.cardNumber;
   }
 }

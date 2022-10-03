@@ -1,0 +1,53 @@
+<mat-card>
+  <mat-card-title>CONFIRMATION</mat-card-title>
+<mat-card-content>
+  <form>
+    <table>
+      <tr>
+          <td>
+            <mat-form-field class="inputs">
+              <input matInput placeholder="Order Number: 0984-1432-9120">
+            </mat-form-field>
+          </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field class="inputs">
+            <input matInput placeholder="Ship to 1234 Oak Dr.">
+            <p>{{cardNum}}</p>
+          </mat-form-field>
+        </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class="inputs">
+          <input matInput placeholder="Payment by: Tim Haggard">
+        </mat-form-field>
+      </td>
+    </tr>
+      <tr>
+          <td>
+            <mat-form-field class="inputs">
+              <input matInput placeholder="Shipping: $15">
+            </mat-form-field>
+          </td>
+          </tr>
+          <tr>
+          <td>
+            <mat-form-field class="inputs">
+              <input matInput placeholder="Total Items: 15">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="inputs">
+              <input matInput placeholder="Order Total: $530">
+            </mat-form-field>
+          </td>
+      </tr>
+    </table>
+    <button mat-raised-button color="accent" routerLink="/" type="submit" class="confirm-button">Return to catalog</button>
+  </form>
+</mat-card-content>
+</mat-card>

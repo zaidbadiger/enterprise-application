@@ -14,13 +14,15 @@ import { FormsModule } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ShippingComponent} from './shipping/shipping.component';
 import { CartComponent } from './cart/cart.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 @NgModule({
   declarations: [
     AppComponent,
     CatalogComponent,
     PaymentInfoComponent,
     ShippingComponent,
-    CartComponent
+    CartComponent,
+    ConfirmationComponent
   ],
   imports: [
     MatTableModule,
@@ -32,7 +34,8 @@ import { CartComponent } from './cart/cart.component';
     FormsModule,
     RouterModule.forRoot([
       {path: 'payment-info', component: PaymentInfoComponent},
-      {path: 'shipping', component: ShippingComponent}
+      {path: 'shipping', component: ShippingComponent},
+      {path: 'confirmation', component: ShippingComponent}
     ]),
     FormsModule,
     ReactiveFormsModule

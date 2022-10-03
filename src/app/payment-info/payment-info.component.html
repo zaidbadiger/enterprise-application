@@ -1,37 +1,42 @@
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+<mat-card>
+  <mat-card-title>Payment Details</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
 
-    <div>
-        <label for="cardHolder">
-          Card Holder
-        </label>
-        <br>
-        <input id="cardHolder" type="text" formControlName="cardHolder">
-      </div>
-    
-      <div>
-        <label for="cardNumber">
-          Card Number
-        </label>
-        <br>
-        <input id="cardNumber" type="text" formControlName="cardNumber">
-      </div>
+      <table>
+        <tr>
+            <td>
 
-      <div>
-        <label for="expirationDate">
-          Expiration Date
-        </label>
-        <br>
-        <input id="expirationDate" type="text" formControlName="expirationDate">
-      </div>
+              <mat-form-field class="inputs">
+                <input matInput placeholder="Card Holder">
+              </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <mat-form-field class="inputs">
+                <input matInput id="cardNumber" formControlName="cardNumber" placeholder="Card Number">
+              </mat-form-field>
+            </td>
+            </tr>
+            <tr>
+            <td>
+              <mat-form-field class="inputs">
+                <input matInput placeholder="Expiration Date">
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="inputs">
+                <input matInput placeholder="CVV">
+              </mat-form-field>
+            </td>
+        </tr>
+      </table>
 
-      <div>
-        <label for="cvv">
-          CVV
-        </label>
-        <br>
-        <input id="cvv" type="text" formControlName="cvv">
-      </div>
+        <button mat-raised-button color="accent" routerLink="/confirmation" type="submit" class="confirm-button">Confirm Purchase</button>
+    </form>
+  </mat-card-content>
+</mat-card>
 
-    <button type="submit">Submit</button>
-
-</form>

@@ -1,12 +1,12 @@
 :host {
   display: flex;
   justify-content: center;
-  margin: 50px 0px;
+  margin: 100px 0px;
 }
 
 .mat-form-field {
   width: 100%;
-  max-width: 250px;
+  min-width: 300px;
   padding: 5px;
 }
 
@@ -22,6 +22,5 @@ mat-card-content {
 }
 
 .confirm-button {
-  margin: 10px;
-  margin-left: 20px;
+  margin-left: 80px;
 }

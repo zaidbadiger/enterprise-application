@@ -9,7 +9,7 @@ import { CartItem } from './shared/models/CartItem';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  cart!:Cart;
+  cart! : Cart;
   constructor(private cartService: CartService) {
     this.setCart();
   }

@@ -27,12 +27,10 @@ export class PaymentInfoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.paymentInfoService.getInfo();
   }
 
   onSubmit(): void {
-    console.log(this.checkoutForm.value.cardHolder!, this.checkoutForm.value.cardNumber!, this.checkoutForm.value.expirationDate!, this.checkoutForm.value.cvv!);
-    this.setData(this.checkoutForm.value.cardHolder!, this.checkoutForm.value.cardNumber!, this.checkoutForm.value.expirationDate!, this.checkoutForm.value.cvv!)
+    this.setData(this.checkoutForm.value.cardHolder!, this.checkoutForm.value.cardNumber!, this.checkoutForm.value.expirationDate!, this.checkoutForm.value.cvv!);
   }
 
   setData(cardHolder: string, cardNumber: string, expirationDate: string, cvv: string) {
@@ -40,6 +38,11 @@ export class PaymentInfoComponent implements OnInit {
     this.paymentInfoService.cardNumber = cardNumber;
     this.paymentInfoService.expirationDate = expirationDate;
     this.paymentInfoService.cvv = cvv;
+    console.log(this.paymentInfoService.cardNumber);
+  }
+
+  getcardNumber() {
+    return this.paymentInfoService.getInfo();
   }
 
 }
