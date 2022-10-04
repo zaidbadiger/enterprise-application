@@ -14,7 +14,7 @@
         <td>
           <mat-form-field class="inputs">
             <input matInput placeholder="Ship to 1234 Oak Dr.">
-            <p>{{cardNum}}</p>
+            <p></p>
           </mat-form-field>
         </td>
     </tr>
@@ -22,6 +22,7 @@
       <td>
         <mat-form-field class="inputs">
           <input matInput placeholder="Payment by: Tim Haggard">
+          <p>{{payment.cardNumber}}</p>
         </mat-form-field>
       </td>
     </tr>
@@ -48,6 +49,7 @@
       </tr>
     </table>
     <button mat-raised-button color="accent" routerLink="/" type="submit" class="confirm-button">Return to catalog</button>
+    <button (click)="updatePaymentInfo()">update</button>
   </form>
 </mat-card-content>
 </mat-card>

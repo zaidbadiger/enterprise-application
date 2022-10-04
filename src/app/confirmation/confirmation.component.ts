@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentInfoService } from '../services/payment-info.service';
+import { Payment } from '../shared/models/Payment';
 
 @Component({
   selector: 'app-confirmation',
@@ -7,16 +8,18 @@ import { PaymentInfoService } from '../services/payment-info.service';
   styleUrls: ['./confirmation.component.css']
 })
 export class ConfirmationComponent {
-  cardNum!: String;
+  payment: Payment;
   constructor(private paymentInfoService: PaymentInfoService) {
-    this.getCard();
+    this.payment = this.paymentInfoService.getPaymentInfo();
   }
 
   ngOnInit(): void {
+    this.payment = this.paymentInfoService.getPaymentInfo();
   }
 
-  getCard() {
-    this.cardNum = this.paymentInfoService.getInfo();
+  updatePaymentInfo(){
+    this.payment = this.paymentInfoService.getPaymentInfo();
   }
+
 
 }
