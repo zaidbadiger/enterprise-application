@@ -6,50 +6,47 @@
       <tr>
           <td>
             <mat-form-field class="inputs">
-              <input matInput placeholder="Order Number: 0984-1432-9120">
+              <input matInput placeholder="Order Number:" value ="0984-1432-9120" readonly />
             </mat-form-field>
           </td>
       </tr>
       <tr>
         <td>
           <mat-form-field class="inputs">
-            <input matInput placeholder="Ship to 1234 Oak Dr.">
-            <p></p>
+            <input matInput placeholder="Ship to:" [value]="address" readonly />
           </mat-form-field>
         </td>
     </tr>
     <tr>
       <td>
         <mat-form-field class="inputs">
-          <input matInput placeholder="Payment by: Tim Haggard">
-          <p>{{payment.cardNumber}}</p>
+          <input matInput placeholder="Payment by:" [value]="cardHolder" readonly />
         </mat-form-field>
       </td>
     </tr>
       <tr>
           <td>
             <mat-form-field class="inputs">
-              <input matInput placeholder="Shipping: $15">
+              <input matInput placeholder="Shipping:" value="$15" readonly />
             </mat-form-field>
           </td>
           </tr>
           <tr>
           <td>
             <mat-form-field class="inputs">
-              <input matInput placeholder="Total Items: 15">
+              <input matInput placeholder="Total Items:" [value]="cart.itemCount" readonly />
             </mat-form-field>
           </td>
         </tr>
         <tr>
           <td>
             <mat-form-field class="inputs">
-              <input matInput placeholder="Order Total: $530">
+              <input matInput placeholder="Order Total:" [value]="(cart.totalPrice * 1.07 + 15)|currency" readonly />
             </mat-form-field>
           </td>
       </tr>
     </table>
     <button mat-raised-button color="accent" routerLink="/" type="submit" class="confirm-button">Return to catalog</button>
-    <button (click)="updatePaymentInfo()">update</button>
   </form>
 </mat-card-content>
 </mat-card>

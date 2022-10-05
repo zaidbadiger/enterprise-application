@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>SHIPPING</mat-card-title>
 <mat-card-content>
-  <form>
+  <form [formGroup]="shippingForm" (ngSubmit)="onSubmit()">
     <table>
         <tr>
             <td>
@@ -25,7 +25,7 @@
         <tr>
             <td colspan="2">
                 <mat-form-field class="triple-width">
-                  <input matInput placeholder="Address">
+                  <input matInput formControlName="address" placeholder="Address" required>
                 </mat-form-field>
             </td>
         </tr>
@@ -69,7 +69,7 @@
                 <button mat-stroked-button color="primary" routerLink="/cart">Return to cart</button>
             </td>
             <td class="content-right">
-                <button mat-raised-button color="accent" routerLink="/payment-info">Continue to payment</button>
+                <button mat-raised-button color="accent" type="submit">Continue to payment</button>
             </td>
         </tr>
     </table>

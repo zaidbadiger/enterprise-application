@@ -25,15 +25,9 @@ export class CatalogComponent implements OnInit {
   }
 
   addToCart(itemTemp: Item){
-    //add items to cart and reset quantity to zero
-    //add items to cart
-    //reset quantities
     this.cartService.addToCart(itemTemp);
   }
 
-  updateItemInCart(item: LineItem){ //this is incomplete
-    //this.cartService.updateQuantity(item);
-  }
 
 }
 

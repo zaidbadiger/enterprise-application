@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
-import { PaymentInfoService } from '../services/payment-info.service';
+import { PaymentInfoService } from '../services/payment-info/payment-info.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment-info',
@@ -11,29 +12,21 @@ import { PaymentInfoService } from '../services/payment-info.service';
 })
 export class PaymentInfoComponent implements OnInit {
 
-  paymentInfo = this.paymentInfoService.getPaymentInfo();
-
-  checkoutForm = this.formBuilder.nonNullable.group({
-    cardHolder: '',
-    cardNumber: '',
-    expirationDate: '',
-    cvv: ''
-  })
-
   constructor(
     private formBuilder: FormBuilder,
-    private paymentInfoService: PaymentInfoService
+    private paymentInfoService: PaymentInfoService,
+    private router: Router
   ) { }
+
+  paymentForm = this.formBuilder.nonNullable.group({
+    cardHolder: ''
+  })
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    this.setData(this.checkoutForm.value.cardHolder!, this.checkoutForm.value.cardNumber!, this.checkoutForm.value.expirationDate!, this.checkoutForm.value.cvv!);
+    this.paymentInfoService.setPaymentInfo(this.paymentForm.value.cardHolder!);
+    this.router.navigate(['/confirmation']);
   }
-
-  setData(cardHolder: string, cardNumber: string, expirationDate: string, cvv: string) {
-    this.paymentInfoService.setPaymentInfo(cardHolder, cardNumber, cvv, expirationDate);
-  }
-
 }

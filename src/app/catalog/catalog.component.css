@@ -8,6 +8,12 @@ img {
   object-fit: cover;
 }
 
+tr {
+  -webkit-columns: 3;
+  -moz-columns: 3;
+  columns: 2;
+}
+
 .catalog {
   display: flex;
   justify-content: center;

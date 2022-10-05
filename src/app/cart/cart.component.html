@@ -86,7 +86,10 @@
       <div class="checkout">
           <div>
               <div class="items-count">{{cart.itemCount}}</div>
-              <div class="total-price">{{cart.totalPrice|currency}}</div>
+              <div class="subtotal">{{cart.totalPrice|currency}}</div>
+              <div class="tax">{{((cart.totalPrice * 1.07) - cart.totalPrice)|currency}}</div>
+              <div class="shipping">$15</div>
+              <div class="total-price">{{(cart.totalPrice * 1.07 + 15)|currency}}</div>
               <td class="content-right">
                 <button mat-raised-button color="accent" routerLink="/shipping">Checkout</button>
               </td>

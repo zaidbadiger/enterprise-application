@@ -90,7 +90,7 @@ ul li select{
 }
 
 .checkout>div{
-  font-size: 1.4rem;
+  font-size: 1rem;
   margin: 1rem;
   flex: 3;
   display: flex;
@@ -99,17 +99,39 @@ ul li select{
   align-items: flex-start;
 }
 
-.checkout .items-count{
-  margin-bottom: 1.5rem;
-}
+
 
 .checkout .items-count::before{
+  padding-bottom: 9px;
   content: 'Item Count: ';
   color: grey;
 }
 
 .checkout .total-price::before{
-  padding-bottom: 10px;
-  content: 'Total Price: ';
+  padding-bottom: 9px;
+  content: 'Grand Total: ';
+  color: grey;
+}
+
+.checkout .subtotal::before{
+  padding-bottom: 9px;
+  content: 'Subtotal: ';
+  color: grey;
+}
+
+.checkout .tax::before{
+  padding-bottom: 9px;
+  content: 'Taxes: ';
+  color: grey;
+}
+
+.checkout .tax::before{
+  padding-bottom: 9px;
+  content: 'Taxes: ';
+  color: grey;
+}
+.checkout .shipping::before{
+  padding-bottom: 9px;
+  content: 'Shipping: ';
   color: grey;
 }

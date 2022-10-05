@@ -11,6 +11,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 const modules = [
@@ -26,6 +27,7 @@ const modules = [
   MatDatepickerModule,
   MatRadioModule,
   MatSelectModule,
+  MatBadgeModule
 ];
 
 @NgModule({

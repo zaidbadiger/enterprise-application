@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { PaymentInfoService } from '../services/payment-info.service';
-import { Payment } from '../shared/models/Payment';
+import { PaymentInfoService } from '../services/payment-info/payment-info.service';
+import { ShippingService } from '../services/shipping/shipping.service';
+import { CartService } from '../services/cart/cart.service';
+import { Cart } from '../shared/models/Cart';
+import { CartItem } from '../shared/models/CartItem';
 
 @Component({
   selector: 'app-confirmation',
@@ -8,18 +11,21 @@ import { Payment } from '../shared/models/Payment';
   styleUrls: ['./confirmation.component.css']
 })
 export class ConfirmationComponent {
-  payment: Payment;
-  constructor(private paymentInfoService: PaymentInfoService) {
-    this.payment = this.paymentInfoService.getPaymentInfo();
+
+  cardHolder! : String;
+  address! : String;
+  cart! : Cart;
+
+  constructor(private paymentInfoService: PaymentInfoService, private shippingService : ShippingService, private cartService : CartService) {
+    this.updateInfo();
   }
 
   ngOnInit(): void {
-    this.payment = this.paymentInfoService.getPaymentInfo();
   }
 
-  updatePaymentInfo(){
-    this.payment = this.paymentInfoService.getPaymentInfo();
+  updateInfo(){
+    this.cardHolder = this.paymentInfoService.getPaymentInfo();
+    this.address = this.shippingService.getShippingInfo();
+    this.cart = this.cartService.getCart();
   }
-
-
 }

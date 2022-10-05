@@ -1,21 +1,20 @@
 <mat-card>
   <mat-card-title>Payment Details</mat-card-title>
   <mat-card-content>
-    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
 
       <table>
         <tr>
             <td>
-
               <mat-form-field class="inputs">
-                <input matInput placeholder="Card Holder">
+                <input matInput formControlName="cardHolder" placeholder="Card Holder" required>
               </mat-form-field>
             </td>
         </tr>
         <tr>
             <td>
               <mat-form-field class="inputs">
-                <input matInput id="cardNumber" formControlName="cardNumber" placeholder="Card Number">
+                <input matInput formControlName="cardNumber" placeholder="Card Number">
               </mat-form-field>
             </td>
             </tr>
@@ -35,7 +34,7 @@
         </tr>
       </table>
 
-        <button mat-raised-button color="accent" routerLink="/confirmation" type="submit" class="confirm-button">Confirm Purchase</button>
+        <button mat-raised-button color="accent" type="submit" class="confirm-button">Confirm Purchase</button>
     </form>
   </mat-card-content>
 </mat-card>
