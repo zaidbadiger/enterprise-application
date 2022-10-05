@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Cart } from '../data/models/cart';
-import { LineItem } from '../data/models/line-item';
 import { Item } from '../shared/models/Item';
 import { CatalogService } from '../services/item/catalog.service';
 import { CartService } from '../services/cart/cart.service';
