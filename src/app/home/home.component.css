@@ -1,0 +1,24 @@
+.header {
+  background-image: url("/assets/homepage/clothing-background.jpg");
+  width:100%;
+  height: 400px;
+  background-position: center;
+}
+div{
+  display: block;
+}
+
+.inner-text{
+  color: white;
+  vertical-align: middle;
+  padding: 30px;
+  text-align: center!important;
+}
+
+.innermost{
+
+}
+.button{
+  padding: 50px;
+
+}

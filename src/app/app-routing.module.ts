@@ -9,7 +9,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path: '', component: CatalogComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'home' },
+  {path: 'home', component: HomeComponent},
   {path: 'shipping', component: ShippingComponent},
   {path: 'cart', component: CartComponent},
   {path: 'confirmation', component: ConfirmationComponent},

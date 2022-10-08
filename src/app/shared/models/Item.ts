@@ -3,4 +3,5 @@ export class Item{
     name!:string;
     price!:number;
     imageUrl!:string;
+    quantity?:number;
 }
