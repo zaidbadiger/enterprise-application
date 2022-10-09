@@ -1,0 +1,45 @@
+.item-card {
+  margin: 10px;
+  border-radius: 50px 50px 10px 10px;
+}
+
+img {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+tr {
+  -webkit-columns: 3;
+  -moz-columns: 3;
+  columns: 2;
+}
+
+.people {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+  margin-bottom: 50px;
+}
+
+.email-button {
+  float: right;
+}
+
+.role {
+  padding-top: 10px;
+  display: inline-block;
+
+}
+
+.item-title {
+  font-size: 22px;
+  text-align: center;
+}
