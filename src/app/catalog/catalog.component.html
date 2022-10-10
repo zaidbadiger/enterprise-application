@@ -1,21 +1,16 @@
 <mat-card class="container">
   <mat-card-content>
     <form class="catalog">
-      <table>
-          <tr>
-              <td *ngFor="let item of items">
-                <mat-card class="item-card">
-                      <img mat-card-image src="{{item.imageUrl}}" alt="{{item.name}}">
-                      <mat-card-content>
-                        <p class="item-title">{{item.name}}</p>
-                        <p class="price">{{item.price|currency}}</p>
-                        <button mat-stroked-button class="add-cart-button" (click)="addToCart(item)">Add to cart</button>
-                  </mat-card-content>
-                </mat-card>
-              </td>
-          </tr>
-      </table>
+        <div *ngFor="let item of items;" class="wrapper">
+            <mat-card class="item-card">
+              <img mat-card-image src="{{item.imageUrl}}" alt="{{item.name}}">
+              <mat-card-content>
+                <p class="item-title">{{item.name}}</p>
+                <p class="price">{{item.price|currency}}</p>
+                <button mat-stroked-button class="add-cart-button" (click)="addToCart(item)">Add to cart</button>
+          </mat-card-content>
+        </mat-card>
+        </div> 
     </form>
   </mat-card-content>
 </mat-card>
-

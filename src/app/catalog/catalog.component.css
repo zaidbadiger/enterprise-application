@@ -1,4 +1,5 @@
 .item-card {
+  max-width: 250px;
   margin: 10px;
 }
 
@@ -8,23 +9,23 @@ img {
   object-fit: cover;
 }
 
-tr {
-  -webkit-columns: 3;
-  -moz-columns: 3;
-  columns: 2;
-}
 
 .catalog {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .container {
+  align-content: center;
   margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  max-width: 1665px;
+  max-width: 700px;
   margin-bottom: 50px;
+}
+
+.wrapper {
+  margin-left: 30px;
+  flex: auto;
 }
 
 .add-cart-button {
