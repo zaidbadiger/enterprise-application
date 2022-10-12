@@ -17,6 +17,8 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
+import {HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,7 @@ import { HomeComponent } from './home/home.component';
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: 'payment-info', component: PaymentInfoComponent},
       {path: 'shipping', component: ShippingComponent},

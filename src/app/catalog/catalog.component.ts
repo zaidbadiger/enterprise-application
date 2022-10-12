@@ -17,9 +17,14 @@ export class CatalogComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-        this.items = this.catalogService.getAll();
+    // this.route.params.subscribe(params => {
+    //     this.items = this.catalogService.getAll();
+    // })
+    this.catalogService.getAll().subscribe(data => {
+      this.items = data;
+      console.log(data);
     })
+
   }
 
   addToCart(itemTemp: Item){
