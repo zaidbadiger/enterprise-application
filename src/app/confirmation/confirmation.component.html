@@ -2,6 +2,40 @@
   <mat-card-title>CONFIRMATION</mat-card-title>
 <mat-card-content>
   <form>
+    <div *ngIf="cart && cart.items.length == 0" class="empty">
+      <p><b>Cart is empty!</b></p>
+      <button mat-raised-button color="accent" routerLink="/" class="return">Return to catalog</button>
+    </div>
+
+    <div *ngIf="cart && cart.items.length > 0" class="container">
+      <ul>
+          <li *ngFor="let cartItem of cart.items">
+              <div>
+                  <img [src]="cartItem.item.imageUrl" [alt]="cartItem.item.name">
+              </div>
+              <div>
+                  <p>{{cartItem.item.name}}</p>
+              </div>
+              <div>
+                  {{cartItem.price|currency}}
+              </div>
+          </li>
+      </ul>
+
+      <div class="checkout">
+          <div>
+              <div class="items-count">{{cart.itemCount}}</div>
+              <div class="subtotal">{{cart.totalPrice|currency}}</div>
+              <div class="tax">{{((cart.totalPrice * 1.07) - cart.totalPrice)|currency}}</div>
+              <div class="shipping">$15</div>
+              <div class="total-price">{{(cart.totalPrice * 1.07 + 15)|currency}}</div>
+              <td class="content-right">
+                <button mat-raised-button color="accent" routerLink="/shipping">Checkout</button>
+              </td>
+          </div>
+      </div>
+
+    </div>
     <table>
       <tr>
           <td>
