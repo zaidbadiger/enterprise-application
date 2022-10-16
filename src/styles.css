@@ -15,7 +15,7 @@ li {
 .nav-name {
     float: left;
     position: relative;
-    left: 34%;
+    left: 28%;
 }
 
 .nav-name a {
@@ -43,6 +43,7 @@ li {
 
 .footer {
   padding-top: 5px;
+  padding-bottom: 10px;
   margin: auto;
   width: 50%;
   border-width: thin;

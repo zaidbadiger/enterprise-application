@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { PaymentInfoService } from '../services/payment-info/payment-info.service';
+import { Payment } from '../shared/models/Payment';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,6 +13,8 @@ import { Router } from '@angular/router';
 })
 export class PaymentInfoComponent implements OnInit {
 
+  private payment : Payment = new Payment();
+
   constructor(
     private formBuilder: FormBuilder,
     private paymentInfoService: PaymentInfoService,
@@ -19,14 +22,21 @@ export class PaymentInfoComponent implements OnInit {
   ) { }
 
   paymentForm = this.formBuilder.nonNullable.group({
-    cardHolder: ''
+    cardHolder: '',
+    cardNumber: '',
+    expirationDate: '',
+    cvv: ''
   })
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    this.paymentInfoService.setPaymentInfo(this.paymentForm.value.cardHolder!);
+    this.payment.cardHolder = this.paymentForm.value.cardHolder!;
+    this.payment.cardNumber = this.paymentForm.value.cardNumber!;
+    this.payment.expirationDate = this.paymentForm.value.expirationDate!;
+    this.payment.cvv = this.paymentForm.value.cvv!;
+    this.paymentInfoService.setPaymentInfo(this.payment);
     this.router.navigate(['/confirmation']);
   }
 }

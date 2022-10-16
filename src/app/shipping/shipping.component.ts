@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ShippingService } from '../services/shipping/shipping.service';
 import { Router } from '@angular/router';
+import { Address } from '../shared/models/Address';
 
 @Component({
   selector: 'app-shipping',
@@ -12,6 +13,8 @@ import { Router } from '@angular/router';
 })
 export class ShippingComponent implements OnInit {
 
+  private address : Address = new Address();
+
   constructor(
     private formBuilder: FormBuilder,
     private shippingservice: ShippingService,
@@ -19,14 +22,30 @@ export class ShippingComponent implements OnInit {
   ) { }
 
   shippingForm = this.formBuilder.nonNullable.group({
-    address: ''
+    address: '',
+    firstName: '',
+    lastName: '',
+    country: '',
+    apartmentNo: '',
+    state: '',
+    city: '',
+    zipcode: ''
   })
 
   ngOnInit(): void {
+    
   }
 
   onSubmit(): void {
-    this.shippingservice.setShippingInfo(this.shippingForm.value.address!);
+    this.address.address = this.shippingForm.value.address!;
+    this.address.firstName = this.shippingForm.value.firstName!;
+    this.address.lastName = this.shippingForm.value.lastName!;
+    this.address.country = this.shippingForm.value.country!;
+    this.address.apartmentNo = this.shippingForm.value.apartmentNo!;
+    this.address.state = this.shippingForm.value.state!;
+    this.address.city = this.shippingForm.value.city!; 
+    this.address.zipcode = this.shippingForm.value.zipcode!;
+    this.shippingservice.setShippingInfo(this.address);
     this.router.navigate(['/payment-info']);
   }
 }

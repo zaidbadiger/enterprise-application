@@ -4,6 +4,8 @@ import { ShippingService } from '../services/shipping/shipping.service';
 import { CartService } from '../services/cart/cart.service';
 import { Cart } from '../shared/models/Cart';
 import { CartItem } from '../shared/models/CartItem';
+import { Address } from '../shared/models/Address';
+import { Payment } from '../shared/models/Payment';
 
 @Component({
   selector: 'app-confirmation',
@@ -12,9 +14,10 @@ import { CartItem } from '../shared/models/CartItem';
 })
 export class ConfirmationComponent {
 
-  cardHolder! : String;
-  address! : String;
   cart! : Cart;
+  address! : Address;
+  payment! : Payment;
+
 
   constructor(private paymentInfoService: PaymentInfoService, private shippingService : ShippingService, private cartService : CartService) {
     this.updateInfo();
@@ -23,9 +26,9 @@ export class ConfirmationComponent {
   ngOnInit(): void {
   }
 
-  updateInfo(){
-    this.cardHolder = this.paymentInfoService.getPaymentInfo();
+  updateInfo() {
     this.address = this.shippingService.getShippingInfo();
+    this.payment = this.paymentInfoService.getPaymentInfo();
     this.cart = this.cartService.getCart();
   }
 }

@@ -6,19 +6,19 @@
         <tr>
             <td>
                 <mat-form-field class="demo-full-width">
-                    <input matInput id="firstName" placeholder="First Name">
+                    <input matInput formControlName="firstName" id="firstName" placeholder="First Name">
                 </mat-form-field>
             </td>
             <td>
                 <mat-form-field class="demo-full-width">
-                    <input matInput placeholder="Last Name">
+                    <input matInput formControlName="lastName" placeholder="Last Name">
                 </mat-form-field>
             </td>
         </tr>
         <tr>
             <td colspan="2">
                 <mat-form-field class="demo-full-width">
-                    <input matInput placeholder="Country/Origin" >
+                    <input matInput formControlName="country" placeholder="Country/Origin" >
                 </mat-form-field>
             </td>
         </tr>
@@ -32,35 +32,35 @@
         <tr>
             <td colspan="2">
                 <mat-form-field class="triple-width">
-                  <input matInput placeholder="Apartment, suite, etc. (optional)">
+                  <input matInput formControlName="apartmentNo" placeholder="Apartment, suite, etc. (optional)">
                 </mat-form-field>
             </td>
         </tr>
         <tr>
           <td>
               <mat-form-field class="triple-width">
-                <mat-select placeholder="State">
-                  <mat-option value="1">Ohio</mat-option>
-                  <mat-option value="2">Kentucky</mat-option>
-                  <mat-option value="3">Indiana</mat-option>
+                <mat-select formControlName="state" placeholder="State">
+                  <mat-option value="Ohio">Ohio</mat-option>
+                  <mat-option value="Kentucky">Kentucky</mat-option>
+                  <mat-option value="Indiana">Indiana</mat-option>
                 </mat-select>
               </mat-form-field>
           </td>
           <td colspan="2">
             <mat-form-field class="triple-width">
-              <input matInput placeholder="Phone">
+              <input matInput formControlName="address" placeholder="Phone">
             </mat-form-field>
           </td>
       </tr>
         <tr>
             <td>
                 <mat-form-field class="triple-width">
-                  <input matInput placeholder="City">
+                  <input matInput formControlName="city" placeholder="City">
                 </mat-form-field>
             </td>
             <td>
                 <mat-form-field class="triple-width">
-                  <input matInput placeholder="ZIP code">
+                  <input matInput formControlName="zipcode" placeholder="ZIP code">
                 </mat-form-field>
             </td>
         </tr>

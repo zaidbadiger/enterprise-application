@@ -1,67 +1,9 @@
-<!-- <!DOCTYPE html>
-<html lang = "en">
-	<head>
-		<script src = "js/angular.js"></script>
-		<script src = "js/app.js"></script>
-		<meta charset = "UTF-8" name = "viewport" content = "width=device-width, initial-scale=1" />
-	</head>
-<body ng-app = "myModule" ng-controller = "myController">
-	<div class = "col-md-2"></div>
-	<div class = "col-md-8 well">
-		<h3 class = "text-primary">Shopping Cart</h3>
-		<hr style = "border-top:1px dotted #ccc;"/>
-		<div id = "bg-background" class = "col-md-7">
-			<h4>PRODUCTS<h4>
-			<hr style = "border-top:1px groovy #ccc;">
-			<div id = "product">
-				<div id = "p_list" ng-repeat = "product in products ">
-					<h5>{{product.p_name}}</h5>
-					<center><img ng-src = "{{product.p_image}}"/></center>
-					<div><label>Price: ₱{{product.p_price}}</label></div>
-					<center><button type = "button" ng-click = "add_cart(product)"><span class = "glyphicon glyphicon-shopping-cart"></span> Add to cart</button></center>
-				</div>
-			</div>
-		</div> -->
-		<!-- <div class = "pull-right col-md-5">
-			<div class = "panel panel-primary">
-				<div class = "panel-heading">
-					<h5>MY CART</h5>
-				</div>
-				<div class = "panel-body table-responsive">
-					<table class = "table">
-						<thead>
-							<tr>
-								<th>Product</th>
-								<th>Price</th>
-                <th>Quantity</th>
-                <th>Total Price</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr *ngFor = "let cart_item of cart.cartItems">
-								<td>{{cart_item.name}}</td>
-								<td>{{cart_item.unitCost}}</td>
-                <td>{{cart_item.quantity}}</td>
-								<td>{{cart_item.unitCost * cart_item.quantity}}</td>
-							</tr>
-							<tr>
-								<td align = "right">Total</td>
-								<td>{{cart.totalCartCost}}</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
-</body>
-</html> -->
 <mat-card class="site">
 <mat-card-content>
   <form>
     <div *ngIf="cart && cart.items.length == 0" class="empty">
       <p><b>Cart is empty!</b></p>
-      <button mat-raised-button color="accent" routerLink="/" class="return">Return to catalog</button>
+      <button mat-raised-button color="accent" routerLink="/catalog" class="return">Return to catalog</button>
     </div>
 
     <div *ngIf="cart && cart.items.length > 0" class="container">
@@ -82,7 +24,6 @@
               </div>
           </li>
       </ul>
-
       <div class="checkout">
           <div>
               <div class="items-count">{{cart.itemCount}}</div>
@@ -95,9 +36,7 @@
               </td>
           </div>
       </div>
-
     </div>
-
   </form>
 </mat-card-content>
 </mat-card>
