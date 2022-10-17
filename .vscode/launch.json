@@ -25,6 +25,16 @@
       "projectName": "order",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-CatalogApplication<itemscatalog>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.clothingfly.catalog.CatalogApplication",
+      "projectName": "itemscatalog",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }

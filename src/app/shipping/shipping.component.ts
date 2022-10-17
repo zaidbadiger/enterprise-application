@@ -22,14 +22,14 @@ export class ShippingComponent implements OnInit {
   ) { }
 
   shippingForm = this.formBuilder.nonNullable.group({
-    address: '',
-    firstName: '',
-    lastName: '',
-    country: '',
-    apartmentNo: '',
-    state: '',
-    city: '',
-    zipcode: ''
+    address: '1234 Oakland. Ave.',
+    firstName: 'Jacob',
+    lastName: 'Whitley',
+    country: 'United States',
+    apartmentNo: 'Apt A20',
+    state: 'Ohio',
+    city: 'Columbus',
+    zipcode: '43201'
   })
 
   ngOnInit(): void {
