@@ -23,20 +23,12 @@ import { ModuleTeardownOptions } from '@angular/core/testing';
 export class PaymentInfoComponent implements OnInit {
 
   private payment : Payment = new Payment();
-  cartJSON!: String;
   cart! : Cart;
   orderId! : number;
   address! : Address;
-  items : CartItem[] = [];
   item : Item[] = [];
   fullPost! : Order;
   public order!: Order;
-
-  // _order = new Order ( id: 1,
-  //   address: this.address,
-  //   payment: this.payment,
-  //   items: this.cartJSON
-  // );
 
 
   constructor(
@@ -49,7 +41,7 @@ export class PaymentInfoComponent implements OnInit {
   ) { }
 
   paymentForm = this.formBuilder.nonNullable.group({
-    cardHolder: 'John Doe',
+    cardHolder: 'Jane Doe',
     cardNumber: '1234123412341234',
     expirationDate: '10/16/2022',
     cvv: '123'
@@ -68,9 +60,8 @@ export class PaymentInfoComponent implements OnInit {
     this.orderId = Math.floor(Math.random() * (100000000000 - 900000000000)) + 900000000000;
     this.address = this.shippingService.getShippingInfo();
     this.cart = this.cartService.getCart();
-    this.items = this.cart.items;
-    for (let i = 0; i < this.items.length; i++) {
-      this.item[i] = this.items[i].item;
+    for (let i = 0; i < this.cart.items.length; i++) {
+      this.item[i] = this.cart.items[i].item;
     }
 
     this.fullPost = {
@@ -78,9 +69,8 @@ export class PaymentInfoComponent implements OnInit {
       address: this.address,
       payment: this.payment,
       items: this.item
-      }
+    }
 
-    //this.cartJSON = JSON.stringify({cart: this.cart});
     console.log(this.fullPost);
     this.apiService.sendOrder(this.fullPost).subscribe(
       (response) => console.log(response),

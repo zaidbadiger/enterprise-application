@@ -23,7 +23,7 @@ export class ShippingComponent implements OnInit {
 
   shippingForm = this.formBuilder.nonNullable.group({
     address: '1234 Apple. Ave.',
-    firstName: 'John',
+    firstName: 'Jane',
     lastName: 'Doe',
     country: 'United States',
     apartmentNo: 'Apt A1',
