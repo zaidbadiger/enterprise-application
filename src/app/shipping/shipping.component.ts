@@ -22,18 +22,18 @@ export class ShippingComponent implements OnInit {
   ) { }
 
   shippingForm = this.formBuilder.nonNullable.group({
-    address: '1234 Oakland. Ave.',
-    firstName: 'Jacob',
-    lastName: 'Whitley',
+    address: '1234 Apple. Ave.',
+    firstName: 'John',
+    lastName: 'Doe',
     country: 'United States',
-    apartmentNo: 'Apt A20',
+    apartmentNo: 'Apt A1',
     state: 'Ohio',
     city: 'Columbus',
     zipcode: '43201'
   })
 
   ngOnInit(): void {
-    
+
   }
 
   onSubmit(): void {
@@ -43,7 +43,7 @@ export class ShippingComponent implements OnInit {
     this.address.country = this.shippingForm.value.country!;
     this.address.apartmentNo = this.shippingForm.value.apartmentNo!;
     this.address.state = this.shippingForm.value.state!;
-    this.address.city = this.shippingForm.value.city!; 
+    this.address.city = this.shippingForm.value.city!;
     this.address.zipcode = this.shippingForm.value.zipcode!;
     this.shippingservice.setShippingInfo(this.address);
     this.router.navigate(['/payment-info']);
