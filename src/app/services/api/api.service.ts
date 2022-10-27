@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Address } from 'src/app/shared/models/Address';
@@ -16,6 +16,7 @@ export class ApiService {
   }
 
   sendOrder(order: Order) {
+    // const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
     return this.http.post(this.orderUrl, order);
   }
 

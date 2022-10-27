@@ -15,6 +15,7 @@ import { Address } from '../shared/models/Address';
 import { Order } from '../shared/models/Order';
 import { ModuleTeardownOptions } from '@angular/core/testing';
 
+
 @Component({
   selector: 'app-payment-info',
   templateUrl: './payment-info.component.html',
@@ -29,6 +30,12 @@ export class PaymentInfoComponent implements OnInit {
   item : Item[] = [];
   fullPost! : Order;
   public order!: Order;
+  error! : string;
+  response : any;
+  responseJSON : any;
+  min : number = 100000000000;
+  max : number = 900000000000;
+
 
 
   constructor(
@@ -57,11 +64,12 @@ export class PaymentInfoComponent implements OnInit {
     this.payment.expirationDate = this.paymentForm.value.expirationDate!;
     this.payment.cvv = this.paymentForm.value.cvv!;
     this.paymentInfoService.setPaymentInfo(this.payment);
-    this.orderId = Math.floor(Math.random() * (100000000000 - 900000000000)) + 900000000000;
+    this.orderId = Math.floor(Math.random() * (this.min - this.max)) + this.max;
     this.address = this.shippingService.getShippingInfo();
     this.cart = this.cartService.getCart();
     for (let i = 0; i < this.cart.items.length; i++) {
       this.item[i] = this.cart.items[i].item;
+      this.item[i].quantity = this.cart.items[i].quantity;
     }
 
     this.fullPost = {
@@ -71,11 +79,19 @@ export class PaymentInfoComponent implements OnInit {
       items: this.item
     }
 
-    console.log(this.fullPost);
+    const myElement = document.getElementById("inventoryError") as HTMLElement;
+
     this.apiService.sendOrder(this.fullPost).subscribe(
-      (response) => console.log(response),
+      (response) => {
+      let notEnough = JSON.parse(JSON.stringify(response)).error;
+      if (notEnough) {
+        myElement.innerHTML = notEnough;
+      } else {
+        this.router.navigate(['/confirmation']);
+      } },
       (error) => console.log(error)
     );
-    this.router.navigate(['/confirmation']);
+
+
   }
 }
