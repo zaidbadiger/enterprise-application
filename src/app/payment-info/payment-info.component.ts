@@ -80,13 +80,17 @@ export class PaymentInfoComponent implements OnInit {
     }
 
     const myElement = document.getElementById("inventoryError") as HTMLElement;
-
+    var notEnough;
     this.apiService.sendOrder(this.fullPost).subscribe(
       (response) => {
-      let notEnough = JSON.parse(JSON.stringify(response)).error;
+      notEnough = JSON.parse(JSON.stringify(response)).error;
       if (notEnough) {
         myElement.innerHTML = notEnough;
       } else {
+        for (let i = 0; i < this.cart.items.length; i++) {
+          this.apiService.updateInventory(this.cart.items[i].item.id, this.cart.items[i].item.quantity);
+        }
+        this.cartService.emptyCart();
         this.router.navigate(['/confirmation']);
       } },
       (error) => console.log(error)

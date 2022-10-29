@@ -28,6 +28,10 @@ export class CartService {
     cartItem.quantity = quantity;
   }
 
+  emptyCart(){
+    this.cart.items=[];
+  }
+
   getCart() : Cart{
     return this.cart;
   }
