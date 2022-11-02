@@ -6,6 +6,10 @@ import { Cart } from '../shared/models/Cart';
 import { CartItem } from '../shared/models/CartItem';
 import { Address } from '../shared/models/Address';
 import { Payment } from '../shared/models/Payment';
+import { FormBuilder } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Router, TitleStrategy } from '@angular/router';
 
 @Component({
   selector: 'app-confirmation',
@@ -19,9 +23,12 @@ export class ConfirmationComponent {
   payment! : Payment;
 
 
-  constructor(private paymentInfoService: PaymentInfoService, private shippingService : ShippingService, private cartService : CartService) {
+  constructor(private paymentInfoService: PaymentInfoService, private shippingService : ShippingService, private cartService : CartService, private formBuilder: FormBuilder, private router: Router) {
     this.updateInfo();
   }
+
+  confirmationForm = this.formBuilder.nonNullable.group({
+  })
 
   ngOnInit(): void {
   }
@@ -30,5 +37,10 @@ export class ConfirmationComponent {
     this.address = this.shippingService.getShippingInfo();
     this.payment = this.paymentInfoService.getPaymentInfo();
     this.cart = this.cartService.getCart();
+  }
+
+  onSubmit() {
+    this.cartService.emptyCart();
+    this.router.navigate(['/catalog']);
   }
 }

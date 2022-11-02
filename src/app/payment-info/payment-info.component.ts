@@ -90,7 +90,6 @@ export class PaymentInfoComponent implements OnInit {
         for (let i = 0; i < this.cart.items.length; i++) {
           this.apiService.updateInventory(this.cart.items[i].item.id, this.cart.items[i].item.quantity);
         }
-        this.cartService.emptyCart();
         this.router.navigate(['/confirmation']);
       } },
       (error) => console.log(error)

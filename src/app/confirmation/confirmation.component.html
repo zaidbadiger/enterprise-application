@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>ORDER SUMMARY</mat-card-title>
 <mat-card-content>
-  <form>
+  <form [formGroup]="confirmationForm" (ngSubmit)="onSubmit()">
     <div *ngIf="cart && cart.items.length > 0" class="container">
       <ul>
           <li *ngFor="let cartItem of cart.items">
@@ -66,7 +66,7 @@
           </td>
       </tr>
     </table>
-    <button mat-raised-button color="accent" routerLink="/catalog" type="submit" class="confirm-button">Return to catalog</button>
+    <button mat-raised-button color="accent" type="submit" class="confirm-button">Return to catalog</button>
   </form>
 </mat-card-content>
 </mat-card>
